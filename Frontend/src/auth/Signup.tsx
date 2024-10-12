@@ -5,13 +5,15 @@ import { Separator } from "@/components/ui/separator";
 import { Loader2, Lock, Mail, PhoneOutgoing, User } from "lucide-react"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
+import { SignupInputState, userSignupSchema } from "./userSchema";
 
-interface SignupInputState {
-    fullname: string,
-    email: string,
-    password: string,
-    contact: string,
-}
+// No need because of UserSignupSchema
+// interface SignupInputState {
+//     fullname: string,
+//     email: string,
+//     password: string,
+//     contact: string,
+// }
 
 const Signup = () => {
     const [input, setInput] = useState<SignupInputState>({
@@ -20,6 +22,7 @@ const Signup = () => {
         password: "",
         contact: ""
     });
+    const [error, setError] = useState<Partial<SignupInputState>>({})
 
     const changeEventHandler = (e:ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -28,6 +31,16 @@ const Signup = () => {
 
     const loginSubmitHandler = (e:FormEvent) =>{
         e.preventDefault();
+
+        // Form Validation Check start
+        const result = userSignupSchema.safeParse(input);
+        if(!result.success){
+          const fieldErrors = result.error.formErrors.fieldErrors;
+          setError(fieldErrors as Partial<SignupInputState>);
+          return;
+        }
+
+        // Api Implementation
         console.log(input)
     }
     const loading = false;
@@ -42,6 +55,7 @@ const Signup = () => {
                 <div className="relative">
                     <Input value={input.fullname} onChange={changeEventHandler} name="fullname" type="text" placeholder="Full Name" className="pl-10 focus-visible:ring-1" />
                     <User className="absolute inset-y-2 left-3 text-gray-500 pointer-events-none"/>
+                    {error && <span className="text-sm text-red-500">{error.fullname}</span>}
                 </div>
             </div>
 
@@ -49,6 +63,7 @@ const Signup = () => {
                 <div className="relative">
                     <Input value={input.email} onChange={changeEventHandler} name="email" type="email" placeholder="Email" className="pl-10 focus-visible:ring-1" />
                     <Mail className="absolute inset-y-2 left-3 text-gray-500 pointer-events-none"/>
+                    {error && <span className="text-sm text-red-500">{error.email}</span>}
                 </div>
             </div>
                 
@@ -56,6 +71,7 @@ const Signup = () => {
                <div className="relative">
                     <Input value={input.password} onChange={changeEventHandler} name="password" type="password" placeholder="Password" className="pl-10 focus-visible:ring-1" />
                     <Lock className="absolute inset-y-2 left-3 text-gray-500 pointer-events-none"/>
+                    {error && <span className="text-sm text-red-500">{error.password}</span>}
                 </div>
             </div>
                 
@@ -63,6 +79,7 @@ const Signup = () => {
                <div className="relative">
                     <Input value={input.contact} onChange={changeEventHandler} name="contact" type="text" placeholder="Contact" className="pl-10 focus-visible:ring-1" />
                     <PhoneOutgoing className="absolute inset-y-2 left-3 text-gray-500 pointer-events-none"/>
+                    {error && <span className="text-sm text-red-500">{error.contact}</span>}
                 </div>
             </div>
 

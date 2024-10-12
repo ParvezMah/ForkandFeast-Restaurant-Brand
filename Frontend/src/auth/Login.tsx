@@ -4,17 +4,20 @@ import { Separator } from "@/components/ui/separator";
 import { Loader2, Lock, Mail } from "lucide-react"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
+import { LoginInputState, userLoginSchema } from "./userSchema";
 
-interface loginInputState {
-    email: string,
-    password: string,
-}
+// No need because of UserLoginSchema
+// interface loginInputState {
+//     email: string,
+//     password: string,
+// }
 
 const Login = () => {
-    const [input, setInput] = useState<loginInputState>({
+    const [input, setInput] = useState<LoginInputState>({
         email:"", 
         password: "",
     });
+    const [error, setError] = useState<Partial<LoginInputState>>({})
 
     const changeEventHandler = (e:ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -23,6 +26,13 @@ const Login = () => {
 
     const loginSubmitHandler = (e:FormEvent) =>{
         e.preventDefault();
+        // Form Validation Start
+        const result = userLoginSchema.safeParse(input);
+        if(!result.success){
+            const fieldErrors = result.error.formErrors.fieldErrors;
+            setError(fieldErrors as Partial<LoginInputState>);
+            return;
+        }
         console.log(input)
     }
     const loading = false;
@@ -37,6 +47,7 @@ const Login = () => {
                 <div className="relative">
                     <Input value={input.email} onChange={changeEventHandler} name="email" type="email" placeholder="Email" className="pl-10 focus-visible:ring-1" />
                     <Mail className="absolute inset-y-2 left-3 text-gray-500 pointer-events-none"/>
+                    {error && <span className="text-sm text-red-500">{error.email}</span>}
                 </div>
             </div>
                 
@@ -44,6 +55,7 @@ const Login = () => {
                <div className="relative">
                     <Input value={input.password} onChange={changeEventHandler} name="password" type="password" placeholder="Password" className="pl-10 focus-visible:ring-1" />
                     <Lock className="absolute inset-y-2 left-3 text-gray-500 pointer-events-none"/>
+                    {error && <span className="text-sm text-red-500">{error.password}</span>}
                 </div>
             </div>
 
