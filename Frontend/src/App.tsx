@@ -1,14 +1,33 @@
 import './App.css'
 import './index.css'
-import { Button } from './components/ui/button'
-import Login from './auth/login'
+import Login from './auth/Login'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import MainLayout from './Layout/MainLayout'
+import Signup from './auth/Signup'
+
+const appRouter = createBrowserRouter([
+    {
+      path:'/',
+      element:<MainLayout/>,
+    },
+    {
+      path: "/login",
+      element: <Login/>
+    },
+    {
+      path: "/signup",
+      element: <Signup/>
+    },
+])
 
 
 function App() {
   return (
-    <>
-      <Login></Login>
-    </>
+    <main>
+      <RouterProvider router={appRouter}>
+
+      </RouterProvider>
+    </main>
   )
 }
 

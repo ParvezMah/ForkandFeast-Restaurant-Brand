@@ -35,9 +35,9 @@ const Login = () => {
                 
             </div>
             <Separator/>
-            <p>
+            <p className="mt-4">
                 Don't have any account?{" "}
-                <Link to=""></Link>
+                <Link to="/signup" className=" text-blue-500 font-bold underline">Sign Up</Link>
             </p>
         </form>
     </div>
