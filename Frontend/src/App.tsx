@@ -5,7 +5,7 @@ import { Button } from './components/ui/button'
 function App() {
   return (
     <>
-        <Button>Let's Build it food app</Button>
+        <Button className='bg-orange hover:bg-hoverOrange'>Let's Build it food app</Button>
     </>
   )
 }
