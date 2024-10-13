@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon index.ts",
@@ -25,9 +25,9 @@
     "stripe": "^17.2.0"
   },
   "devDependencies": {
-    "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.7.5",
     "nodemon": "^3.1.7",

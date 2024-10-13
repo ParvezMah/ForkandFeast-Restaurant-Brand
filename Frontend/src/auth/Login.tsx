@@ -66,6 +66,10 @@ const Login = () => {
                 }
                 
             </div>
+            
+            <div className="my-4">
+                <Link to="/forgot-password" className="text-blue-500 font-bold">Forgot Password?</Link>
+            </div>
             <Separator/>
             <p className="mt-4">
                 Don't have any account?{" "}
