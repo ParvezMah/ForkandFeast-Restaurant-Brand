@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator";
+import { LoginInputState, userLoginSchema } from "@/schema/userSchema";
 import { Loader2, Lock, Mail } from "lucide-react"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
-import { LoginInputState, userLoginSchema } from "./userSchema";
 
 // No need because of UserLoginSchema
 // interface loginInputState {

@@ -2,10 +2,11 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator";
+import { SignupInputState, userSignupSchema } from "@/schema/userSchema";
 import { Loader2, Lock, Mail, PhoneOutgoing, User } from "lucide-react"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
-import { SignupInputState, userSignupSchema } from "./userSchema";
+
 
 // No need because of UserSignupSchema
 // interface SignupInputState {
