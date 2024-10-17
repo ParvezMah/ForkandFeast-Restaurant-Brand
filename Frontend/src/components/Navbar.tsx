@@ -62,6 +62,8 @@ const Navbar = () => {
               </Menubar>
             )}
           </div>
+
+           {/* Light & Dark Mode */}
           <div className="flex items-center gap-4">
             <div>
               <DropdownMenu>
@@ -78,11 +80,13 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
+
+            {/* ShoppingCart icon */}
             <Link to="/cart" className="relative cursor-pointer">
               <ShoppingCart />
               <Button
                 size={"icon"}
-                className="absolute -inset-3 left-2 text-xs rounded-full h-4 w-4 bg-red-500 hover:bg-red-400"
+                className="absolute -inset-3 left-3 text-xs rounded-full h-4 w-4 bg-red-500 hover:bg-red-400"
               >
                 1
               </Button>
@@ -105,6 +109,7 @@ const Navbar = () => {
               )}
             </div>
           </div>
+
         </div>
         <div className="md:hidden lg:hidden">
           {/* Mobile Responsive - Need a sheet*/}
