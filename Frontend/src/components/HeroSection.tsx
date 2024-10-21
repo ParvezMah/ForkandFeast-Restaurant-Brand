@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const HereSection = () => {
   const [searchText, setSearchText] = useState<string>("");
+  console.log('SearchText : ', searchText);
   const navigate = useNavigate();
   return (
     <div className="flex flex-col md:flex-row max-w-7xl mx-auto md:p-10 rounded-lg items-center justify-center m-4 gap-20">
