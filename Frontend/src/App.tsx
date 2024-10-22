@@ -10,6 +10,7 @@ import HeroSection from './components/HeroSection'
 import MainLayout from './Layout/MainLayout'
 import Profile from './components/Profile'
 import SearchPage from './components/SearchPage'
+import RestaurantDetail from './components/RestaurantDetail'
 
 
 
@@ -27,8 +28,12 @@ const appRouter = createBrowserRouter([
           element: <Profile/>,
         },
         {
-          path:'/search/:id',
+          path:'/search/:text',
           element: <SearchPage/>,
+        },
+        {
+          path:'/restaurant/:id',
+          element: <RestaurantDetail/>,
         },
       ]
     },

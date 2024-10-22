@@ -27,14 +27,6 @@ const SearchPage = () => {
   console.log("clicked params : ", params);
   return (
     <div className="max-w-7xl mx-auto my-10">
-      {/* <div className="bg-red-600 text-yellow-200">
-        {" "}
-        <h1>
-          SearchPage ({searchText}) -{" "}
-          <span>SearchPage Params Text is not coming</span>
-        </h1>
-      </div> */}
-
       <div className="flex flex-col md:flex-row justify-between my-10 gap-10">
         <FilterPage/>
         <div className="flex-1">
@@ -100,7 +92,9 @@ const SearchPage = () => {
                             </CardContent>
                             <CardFooter className="p-4 border-t rounded dark:border-t-gray-700 border-t-gray-100 text-white flex justify-end">
                               <Link to={`/restaurant/${123}`}>
-                                <Button className="bg-orange hover:bg-hoverOrange font-semibold py-2 px-4 rounded-full transition-colors duration-200">View Menus</Button>
+                                <Button className="bg-orange hover:bg-hoverOrange font-semibold py-2 px-4 rounded-full transition-colors duration-200">
+                                  View Menus
+                                </Button>
                               </Link>
                             </CardFooter>
                           </Card>
