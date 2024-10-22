@@ -1,7 +1,6 @@
-import Img from "@/assets/hero_pizza.png";
-import { Badge } from "./ui/badge";
 import { Timer } from "lucide-react";
 import AvailableMenu from "./AvailableMenu";
+import { Badge } from "./ui/badge";
 
 const RestaurantDetail = () => {
   return (
@@ -9,7 +8,7 @@ const RestaurantDetail = () => {
       <div className="w-full">
         <div className="relative w-full h-32 md:h-64 lg:h-72">
           <img
-            src={Img}
+            src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?cs=srgb&dl=pexels-chanwalrus-941861.jpg&fm=jpg"
             alt="ResImage"
             className="object-cover w-full h-full rounded shadow-lg"
           />
