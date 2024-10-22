@@ -30,7 +30,7 @@ const Profile = () => {
   const fileChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
+      const reader = new FileReader(); //FileReader object is created to read the file as a Data URL, which allows the file (image) to be used as a base64 string.
       reader.onloadend = () => {
         const result = reader.result as string;
         setSelectedProfilePicture(result);

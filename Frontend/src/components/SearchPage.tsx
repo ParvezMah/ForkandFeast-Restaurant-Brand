@@ -13,6 +13,9 @@ import { Skeleton } from "./ui/skeleton";
 const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [searchResults, setSearchResults] = useState<string[]>(["Biriyani", "Momos", "Jalebi"]);
+  const filteredResults = searchResults.filter((result => result.toString().includes(searchQuery)))
+
    // Simulate loading delay (Remove this in real use case)
    useEffect(()=>{
     const timer = setTimeout(() => setLoading(false),2000);
