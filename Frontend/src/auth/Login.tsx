@@ -17,7 +17,7 @@ const Login = () => {
         email:"", 
         password: "",
     });
-    const [error, setError] = useState<Partial<LoginInputState>>({})
+    const [error, setError] = useState<Partial<LoginInputState>>({}) // Partial Data type
 
     const changeEventHandler = (e:ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;

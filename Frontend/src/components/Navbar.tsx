@@ -35,7 +35,7 @@ const Navbar = () => {
     <div className="max-w-7xl mx-auto">
       <div className="flex items-center justify-between h-14">
         <Link to="">
-          <h1 className="font-bold md:font-extrabold text-2xl">Fork&Feast - 03:45:18</h1>
+          <h1 className="font-bold md:font-extrabold text-2xl">Fork&Feast - 05:00:54</h1>
         </Link>
         <div className="hidden md:flex gap-10 items-center">
           <div className="hidden md:flex items-center gap-6">
@@ -157,7 +157,7 @@ const MobileNavbar = () => {
  */}
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><User/><span>Profile</span></Link>
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><HandPlatter/><span>Order</span></Link>
-            <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><ShoppingCart/><span>Cart (0)</span></Link>
+            <Link to="/cart" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><ShoppingCart/><span>Cart (0)</span></Link>
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><SquareMenu/><span>Menu</span></Link>
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><Utensils/><span>Restaurant</span></Link>
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><PackageCheck/><span>Restaurant Orders</span></Link>
