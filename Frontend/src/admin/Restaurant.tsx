@@ -31,7 +31,7 @@ const Restaurant = () => {
         <div>
           <h1 className="font-extrabold text-2xl mb-5">Add Restaurant</h1>
           <form action="">
-            <div className="md:grid grid-cols-2 space-y-2 md:space-y-0">
+            <div className="md:grid grid-cols-2 space-y-2 md:space-y-0 text-left">
               {/* Restaurant Name */}
               <div>
                 <Label>Restaurant Name</Label>
@@ -92,7 +92,7 @@ const Restaurant = () => {
                 <Input
                   type="file"
                   accept="image/*"
-                  name="image"
+                  name="imageFile"
                   placeholder="Enter Your restaurant Image"
                   onChange={(e) =>
                     setInput({
