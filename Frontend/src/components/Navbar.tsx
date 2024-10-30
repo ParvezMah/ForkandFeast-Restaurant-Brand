@@ -159,7 +159,7 @@ const MobileNavbar = () => {
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><HandPlatter/><span>Order</span></Link>
             <Link to="/cart" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><ShoppingCart/><span>Cart (0)</span></Link>
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><SquareMenu/><span>Menu</span></Link>
-            <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><Utensils/><span>Restaurant</span></Link>
+            <Link to="/admin/restaurant" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><Utensils/><span>Restaurant</span></Link>
             <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><PackageCheck/><span>Restaurant Orders</span></Link>
         </SheetDescription>
         <SheetFooter className="flex flex-col gap-4">
