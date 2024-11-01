@@ -54,7 +54,7 @@ const Navbar = () => {
                     <Link to="/admin/menu">
                       <MenubarItem>Menu</MenubarItem>
                     </Link>
-                    <Link to="/admin/order">
+                    <Link to="/admin/orders">
                       <MenubarItem>Order</MenubarItem>
                     </Link>
                   </MenubarContent>
@@ -160,7 +160,7 @@ const MobileNavbar = () => {
             <Link to="/cart" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><ShoppingCart/><span>Cart (0)</span></Link>
             <Link to="/admin/menu" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><SquareMenu/><span>Menu</span></Link>
             <Link to="/admin/restaurant" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><Utensils/><span>Restaurant</span></Link>
-            <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><PackageCheck/><span>Restaurant Orders</span></Link>
+            <Link to="/admin/orders" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><PackageCheck/><span>Restaurant Orders</span></Link>
         </SheetDescription>
         <SheetFooter className="flex flex-col gap-4">
           <div className="flex flex-row items-center gap-2">

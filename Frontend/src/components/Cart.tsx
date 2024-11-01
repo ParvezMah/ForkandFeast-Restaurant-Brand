@@ -24,11 +24,11 @@ const Cart = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Items</TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Quantity</TableHead>
-            <TableHead>Total</TableHead>
+            <TableHead >Items</TableHead>
+            <TableHead >Title</TableHead>
+            <TableHead >Price</TableHead>
+            <TableHead >Quantity</TableHead>
+            <TableHead  >Total</TableHead>
             <TableHead className="text-right">Remove</TableHead>
           </TableRow>
         </TableHeader>
