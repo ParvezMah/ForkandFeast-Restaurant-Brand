@@ -13,7 +13,18 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { HandPlatter, Loader2, Menu, Moon, PackageCheck, ShoppingCart, SquareMenu, Sun, User, Utensils } from "lucide-react";
+import {
+  HandPlatter,
+  Loader2,
+  Menu,
+  Moon,
+  PackageCheck,
+  ShoppingCart,
+  SquareMenu,
+  Sun,
+  User,
+  Utensils,
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Sheet,
@@ -63,7 +74,7 @@ const Navbar = () => {
             )}
           </div>
 
-           {/* Light & Dark Mode */}
+          {/* Light & Dark Mode */}
           <div className="flex items-center gap-4">
             <div>
               <DropdownMenu>
@@ -109,7 +120,6 @@ const Navbar = () => {
               )}
             </div>
           </div>
-
         </div>
         <div className="md:hidden lg:hidden">
           {/* Mobile Responsive - Need a sheet*/}
@@ -151,27 +161,63 @@ const MobileNavbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </SheetHeader>
-        <Separator className="my-2"/>
+        <Separator className="my-2" />
         <SheetDescription className="flex-1 ">
-            {/* className="flex items-center gap-4 hover:bg-gray-200 px-3 py-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
- */}
-            <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><User/><span>Profile</span></Link>
-            <Link to="/profile" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><HandPlatter/><span>Order</span></Link>
-            <Link to="/cart" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><ShoppingCart/><span>Cart (0)</span></Link>
-            <Link to="/admin/menu" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><SquareMenu/><span>Menu</span></Link>
-            <Link to="/admin/restaurant" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><Utensils/><span>Restaurant</span></Link>
-            <Link to="/admin/orders" className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"><PackageCheck/><span>Restaurant Orders</span></Link>
+          {/* className="flex items-center gap-4 hover:bg-gray-200 px-3 py-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+           */}
+          <Link
+            to="/profile"
+            className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+          >
+            <User />
+            <span>Profile</span>
+          </Link>
+          <Link
+            to="/order/status"
+            className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+          >
+            <HandPlatter />
+            <span>Order</span>
+          </Link>
+          <Link
+            to="/cart"
+            className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+          >
+            <ShoppingCart />
+            <span>Cart (0)</span>
+          </Link>
+          <Link
+            to="/admin/menu"
+            className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+          >
+            <SquareMenu />
+            <span>Menu</span>
+          </Link>
+          <Link
+            to="/admin/restaurant"
+            className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+          >
+            <Utensils />
+            <span>Restaurant</span>
+          </Link>
+          <Link
+            to="/admin/orders"
+            className="flex items-center gap-4 hover:bg-gray-200 p-2 rounded-lg cursor-pointer hover:text-gray-900 font-medium"
+          >
+            <PackageCheck />
+            <span>Restaurant Orders</span>
+          </Link>
         </SheetDescription>
         <SheetFooter className="flex flex-col gap-4">
           <div className="flex flex-row items-center gap-2">
             <Avatar>
-              <AvatarImage/>
+              <AvatarImage />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <h1 className="font-bold">Patel Mernstack</h1>
           </div>
           <SheetClose asChild>
-              <Button className="bg-orange hover:bg-hoverOrange">Logout</Button>
+            <Button className="bg-orange hover:bg-hoverOrange">Logout</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
