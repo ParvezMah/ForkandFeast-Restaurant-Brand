@@ -1,4 +1,4 @@
-
+// Creating 5 digit verification Code
 export const generateVerificationCode = (length = 6): string => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let verificationCode = ''; // 6 digit ka code isi me store hoga
@@ -7,6 +7,6 @@ export const generateVerificationCode = (length = 6): string => {
     for (let i = 0; i < length; i++) {
       verificationCode += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-  
+
     return verificationCode;
 }; 
