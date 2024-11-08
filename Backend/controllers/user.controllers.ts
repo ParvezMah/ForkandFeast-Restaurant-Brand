@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { User } from "../models/user.models";
 import bcrypt from "bcryptjs";
 import crypto from "crypto-js"
+import cloudinary from "../utils/cloudinary";
 
 
 // 1-Signup logic
@@ -216,7 +217,21 @@ export const checkAuth = async (req:Request, res:Response)=>{
 // 8-Update Profile Logic
 export const updateProfile = async (req:Request, res:Response)=>{
     try {
+        const {userId} = req.id;
+        const {fullname, email, address, city, country, profilePicture} = req.body;
+
+        // upload image on cloudinary
+        let cloudResponse: any;
+        cloudResponse = await cloudinary.uploader.upload(profilePicture);
+        const updateData = {fullname, email, address, city, country, profilePicture};
         
+        const user = await User.findByIdAndUpdate(userId, updateData, {new:true}).select("-password");
+
+        return res.status(200).json({
+            success:true,
+            user,
+            message:"Profile updated successfully"
+        });
     } 
     catch (error) {
         console.log(error);
