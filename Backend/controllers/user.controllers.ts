@@ -3,6 +3,8 @@ import { User } from "../models/user.models";
 import bcrypt from "bcryptjs";
 import crypto from "crypto-js"
 import cloudinary from "../utils/cloudinary";
+import { generateVerificationCode } from "../utils/generateVerificationCode";
+import { generateToken } from "../utils/generateToken";
 
 
 // 1-Signup logic
