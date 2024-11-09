@@ -5,6 +5,7 @@ import crypto from "crypto-js"
 import cloudinary from "../utils/cloudinary";
 import { generateVerificationCode } from "../utils/generateVerificationCode";
 import { generateToken } from "../utils/generateToken";
+import { sendPasswordResetEmail, sendResetSuccessEmail, sendVerificationEmail, sendWelcomeEmail } from "../maitrap/email";
 
 
 // 1-Signup logic
@@ -143,15 +144,17 @@ export const forgotPassword= async(req:Request, res:Response)=>{
         // 1 * 60 * 60 * 1000 represents 1 hour in milliseconds.
         const resetTokenExpiresAt = new Date(Date.now()+1*60*60*1000); 
 
-        // send email
-        // await sendPasswordResetEmail(user.email, `${process.env.FRONTEND_URL}/resetPassword/${resetToken}`)
-
         user.resetPasswordToken = resetToken;
         user.resetPasswordTokenExpiresAt = resetTokenExpiresAt;
         await user.save();
 
+        // send email
+        await sendPasswordResetEmail(user.email, `${process.env.FRONTEND_URL}/resetPassword/${resetToken}`)
 
-
+        return res.status(200).json({
+            success: true,
+            message: "Password reset link sent to your email"
+        });
     } 
     catch (error) {
         console.log(error)
@@ -181,6 +184,7 @@ export const resetPassword = async (req:Request, res:Response)=> {
         await user.save();
         
         // send success reset email
+        await sendResetSuccessEmail(user.email);
 
         return res.status(200).json({
             success: true,
