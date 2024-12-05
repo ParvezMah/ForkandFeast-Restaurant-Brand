@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "../db/connectDB.js";
 import userRoute from "../routes/user.routes.js";
+import restaurantRoute from "../routes/restaurant.routes.js";
 import bodyParser from "body-parser"; // Fix for body-parser import
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -25,7 +26,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // API route
-// app.use("/api/v1/user", userRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/restaurant", restaurantRoute);
 
 // Start the server
 app.listen(PORT, () => {
