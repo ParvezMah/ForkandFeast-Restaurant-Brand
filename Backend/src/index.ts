@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "../db/connectDB.js";
 import userRoute from "../routes/user.routes.js";
-import * as bodyParser from "body-parser"; // Fix for body-parser import
+import bodyParser from "body-parser"; // Fix for body-parser import
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
