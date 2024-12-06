@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator";
 import { SignupInputState, userSignupSchema } from "@/schema/userSchema";
+import { useUserStore } from "@/store/useUserStore";
 import { Loader2, Lock, Mail, PhoneOutgoing, User } from "lucide-react"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
@@ -24,13 +25,14 @@ const Signup = () => {
         contact: ""
     });
     const [error, setError] = useState<Partial<SignupInputState>>({})
+    const {signup, loading} = useUserStore();
 
     const changeEventHandler = (e:ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
         setInput({...input, [name]:value});
     }
 
-    const loginSubmitHandler = (e:FormEvent) =>{
+    const loginSubmitHandler = async (e:FormEvent) =>{
         e.preventDefault();
 
         // Form Validation Check start
@@ -41,10 +43,10 @@ const Signup = () => {
           return;
         }
 
-        // Api Implementation
-        console.log(input)
+        // log in Api Implementation here
+        await signup(input)
     }
-    const loading = false;
+
   return (
     <div className="flex items-center justify-center min-h-screen">
         <form onSubmit={loginSubmitHandler} className="md:p-8 w-full max-w-md rounded-lg md:border border-gray-200">

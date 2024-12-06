@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator";
 import { LoginInputState, userLoginSchema } from "@/schema/userSchema";
+import { useUserStore } from "@/store/useUserStore";
 import { Loader2, Lock, Mail } from "lucide-react"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
@@ -18,6 +19,7 @@ const Login = () => {
         password: "",
     });
     const [error, setError] = useState<Partial<LoginInputState>>({}) // Partial Data type
+    const {login, loading} = useUserStore();
 
     const changeEventHandler = (e:ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -35,7 +37,6 @@ const Login = () => {
         }
         console.log(input)
     }
-    const loading = false;
   return (
     <div className="flex items-center justify-center min-h-screen">
         <form onSubmit={loginSubmitHandler} className="md:p-8 w-full max-w-md rounded-lg md:border border-gray-200">

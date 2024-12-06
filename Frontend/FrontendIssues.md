@@ -1,4 +1,5 @@
 # Issue-1 : Zustand persist is not working while i'm trying to reloading my UI
+
 ##  Code 
 ```
 import { create } from "zustand";
@@ -29,3 +30,13 @@ export const useCartStore = create(
         ```
         <Button onClick={increment} className="bg-orange hover:bg-hoverOrangerounded">Logout</Button>
         ```
+
+
+
+
+
+# Issue-2 : internal server error when trying to signup ![alt text](image-1.png) - 12:44:35 • User Zustand Store
+    -> useUserStore.ts
+    -> ![alt text](image-2.png)
+    -> const API_END_POINT = "http://localhost:8000/api/v1/user";
+       axios.defaults.withCredentials = true
