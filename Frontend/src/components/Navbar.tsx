@@ -38,15 +38,18 @@ import {
 } from "./ui/sheet";
 
 import { Separator } from "./ui/separator";
+import { useCartStore } from "@/store/useCartStore";
+
 
 const Navbar = () => {
   const admin = true;
   const loading = false;
+  const {count, increment} = useCartStore();
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex items-center justify-between h-14">
         <Link to="">
-          <h1 className="font-bold md:font-extrabold text-2xl">Fork&Feast</h1>
+          <h1 className="font-bold md:font-extrabold text-2xl">Fork&Feast {count}</h1>
         </Link>
         <div className="hidden md:flex gap-10 items-center">
           <div className="hidden md:flex items-center gap-6">
@@ -114,7 +117,7 @@ const Navbar = () => {
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please Wait
                 </Button>
               ) : (
-                <Button className="bg-orange hover:bg-hoverOrange rounded">
+                <Button onClick={increment} className="bg-orange hover:bg-hoverOrange rounded">
                   Logout
                 </Button>
               )}
