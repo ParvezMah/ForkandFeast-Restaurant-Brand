@@ -5,7 +5,7 @@ import { LoginInputState, SignupInputState } from '@/schema/userSchema';
 import { toast } from 'sonner';
 
 
-const API_END_POINT = "http://localhost:8000/api/v1/user";
+const API_END_POINT = "https://localhost:8000/api/v1/user";
 axios.defaults.withCredentials = true;
 
 type User = {
@@ -54,11 +54,11 @@ export const useUserStore = create<UserState>()(persist((set)=>({
                 }
             });
             if(response.data.success){
-                console.log(response.data);
                 toast.success(response.data.message);
                 set({loading: false, user: response.data.user, isAuthenticated:true});
             }
         } catch (error:any) {
+            console.log("error.response.data.message : ", error.response.data.message)
             toast.error(error.response.data.message);
             set({ loading: false });
         }
@@ -103,12 +103,12 @@ export const useUserStore = create<UserState>()(persist((set)=>({
     checkAuthentication: async ()=> {
         try {
             set({isCheckingAuth:true});
-            const response = await axios.get(`${API_END_POINT}/check-authentication`);
+            const response = await axios.get(`${API_END_POINT}/check-auth`);
             if(response.data.success){
-                set({loading:false, user:response.data.user, isAuthenticated:true, isCheckingAuth:false})
+                set({user:response.data.user, isAuthenticated:true, isCheckingAuth:false})
             }
         } catch (error) {
-            set({loading:false, isAuthenticated:false, ischeckingAuth: false})
+            set({isAuthenticated:false, isCheckingAuth: false})
         }
     },
     logout: async ()=> {

@@ -21,6 +21,8 @@ import AddMenu from "./admin/AddMenu";
 import Orders from "./admin/Orders";
 import Success from "./components/Success";
 import { useUserStore } from "./store/useUserStore";
+import { useEffect } from "react";
+import Loading from "./components/Loading";
 
 const ProtectedRoutes = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, user } = useUserStore();
@@ -50,6 +52,7 @@ const AdminRoute = ({ children }: { children: React.ReactNode })=>{
   if (!user?.admin) {
     return <Navigate to="/" replace />;
   }
+  return children;
 }
 
 const appRouter = createBrowserRouter([
@@ -123,6 +126,15 @@ const appRouter = createBrowserRouter([
 ]);
 
 function App() {
+
+  const {checkAuthentication, isAuthenticated} = useUserStore();
+
+  // Checking auth every time when page is loaded.
+  useEffect(()=>{
+    checkAuthentication()
+  }, [checkAuthentication])
+
+  if(isAuthenticated) return <Loading/>
   return (
     <main>
       <RouterProvider router={appRouter}></RouterProvider>
