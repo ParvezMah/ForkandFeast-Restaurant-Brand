@@ -1,8 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "../db/connectDB.js";
-import userRoute from "../routes/user.routes.js";
-import restaurantRoute from "../routes/restaurant.routes.js";
+import userRoute from "../routes/user.route.js";
+import restaurantRoute from "../routes/restaurant.route.js";
+import menuRoute from "../routes/menu.route.js";
 import bodyParser from "body-parser"; // Fix for body-parser import
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -28,6 +29,7 @@ app.use(cors(corsOptions));
 // API route
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/restaurant", restaurantRoute);
+app.use("/api/v1/menu", menuRoute);
 
 // Start the server
 app.listen(PORT, () => {
